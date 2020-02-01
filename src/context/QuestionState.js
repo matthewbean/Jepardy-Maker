@@ -1,14 +1,16 @@
 import React, { useReducer } from 'react';
 import questionReducer from './questionReducer';
 import QuestionContext from './questionContext';
+import {GO_FULLSCREEN} from './types'
 
 const QuestionState = props =>{
 
 const initialState = {
     fullscreen: false,
+    currentQuestion: null,
     game:{
         title: "Jepardy",
-        catagories: [
+        categories: [
     {
         title: "Repair Roulette",
         questions: [{
@@ -149,7 +151,7 @@ const initialState = {
         },
         {
             value: 500,
-            question: "",
+            question: "How are you doing today",
             answer: ""
         },
     ]
@@ -158,7 +160,7 @@ const initialState = {
         title: "Missed Connections",
         questions: [{
             value: 100,
-            question: "",
+            question: "I am doing fine",
             answer: ""
         },
         {
@@ -188,11 +190,25 @@ const initialState = {
     }
     const [state, dispatch] = useReducer(questionReducer, initialState);
 
+    //go fullscreen
+    const goFullscreen = (category, question)=>{
+        dispatch({type: GO_FULLSCREEN, payload: [category, question]})
+    }
+
+    //go to answer
+
+    //leave fullscreen
+
+    //set as answered
+
+    //reset board
     return(
         <QuestionContext.Provider
         value = {{
             game: state.game,
-            fullscreen: state.fullscreen
+            fullscreen: state.fullscreen,
+            currentQuestion: state.currentQuestion,
+            goFullscreen
         }}>
             {props.children}
         </QuestionContext.Provider>

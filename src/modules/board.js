@@ -6,7 +6,7 @@ import Fullscreen from './fullscreen';
 const Board = () => {
     const questionContext = useContext(QuestionContext);
     const { game, fullscreen } = questionContext;
-    const { catagories } = game;
+    const { categories } = game;
 
     if(fullscreen){
         return(
@@ -17,7 +17,7 @@ const Board = () => {
     }
     return (
         <div className = "board">
-{catagories.map((catagory, index)=><Category category = {catagory} key = {index}/>)
+{categories.map((catagory, index)=><Category number = {index} category = {catagory} key = {index}/>)
             }
         </div>
     )
