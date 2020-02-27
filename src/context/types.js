@@ -1,1 +1,2 @@
-export const GO_FULLSCREEN = "Go_FULLSCREEN";
+export const GO_FULLSCREEN = "GO_FULLSCREEN";
+export const EXIT_FULLSCREEN = "EXIT_FULLSCREEN";

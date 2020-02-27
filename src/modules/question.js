@@ -7,13 +7,16 @@ const Question = ({question, categoryKey}) => {
     const click = ()=>{
         goFullscreen(categoryKey, (question.value/100-1));
     };
-    
+    if(!question.done){
     return (
-
-        <button className = "question" onClick = {click}>
-    {question.value}
-            </button>
+         <button className = "question" onClick = {click}>{question.value}</button>
     )
+    }
+    else{
+        return(
+            <button className = "question"></button>
+        )
+    }
 }
 
 export default Question

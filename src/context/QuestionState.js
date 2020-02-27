@@ -1,7 +1,8 @@
 import React, { useReducer } from 'react';
 import questionReducer from './questionReducer';
 import QuestionContext from './questionContext';
-import {GO_FULLSCREEN} from './types'
+import {GO_FULLSCREEN,
+        EXIT_FULLSCREEN} from './types'
 
 const QuestionState = props =>{
 
@@ -16,27 +17,32 @@ const initialState = {
         questions: [{
             value: 100,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
         {
             value: 200,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
         {
             value: 300,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
         {
             value: 400,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
         {
             value: 500,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
     ]
     },
@@ -45,27 +51,32 @@ const initialState = {
         questions: [{
             value: 100,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
         {
             value: 200,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
         {
             value: 300,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
         {
             value: 400,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
         {
             value: 500,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
     ]
     },
@@ -74,27 +85,32 @@ const initialState = {
         questions: [{
             value: 100,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
         {
             value: 200,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
         {
             value: 300,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
         {
             value: 400,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
         {
             value: 500,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
     ]
     },
@@ -103,27 +119,32 @@ const initialState = {
         questions: [{
             value: 100,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
         {
             value: 200,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
         {
             value: 300,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
         {
             value: 400,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
         {
             value: 500,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
     ]
     },
@@ -132,27 +153,32 @@ const initialState = {
         questions: [{
             value: 100,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
         {
             value: 200,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
         {
             value: 300,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
         {
             value: 400,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
         {
             value: 500,
             question: "How are you doing today",
-            answer: ""
+            answer: "",
+            done: false
         },
     ]
     },
@@ -161,27 +187,32 @@ const initialState = {
         questions: [{
             value: 100,
             question: "I am doing fine",
-            answer: ""
+            answer: "",
+            done: false
         },
         {
             value: 200,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
         {
             value: 300,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
         {
             value: 400,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
         {
             value: 500,
             question: "",
-            answer: ""
+            answer: "",
+            done: false
         },
     ]
         }
@@ -192,13 +223,15 @@ const initialState = {
 
     //go fullscreen
     const goFullscreen = (category, question)=>{
-        dispatch({type: GO_FULLSCREEN, payload: [category, question]})
+        dispatch({type: GO_FULLSCREEN, payload:[category, question]})
     }
 
     //go to answer
 
-    //leave fullscreen
-
+    // leave fullscreen
+    const leaveFullscreen = (questionID)=>{
+        dispatch({type: EXIT_FULLSCREEN, payload:questionID})
+    }
     //set as answered
 
     //reset board
@@ -208,7 +241,8 @@ const initialState = {
             game: state.game,
             fullscreen: state.fullscreen,
             currentQuestion: state.currentQuestion,
-            goFullscreen
+            goFullscreen,
+            leaveFullscreen
         }}>
             {props.children}
         </QuestionContext.Provider>
